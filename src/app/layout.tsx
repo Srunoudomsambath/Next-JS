@@ -7,6 +7,7 @@ import Loading from "./loading";
 import Error from "./error";
 import { ErrorBoundary } from "next/dist/client/components/error-boundary";
 import NavbarWrapper from "@/components/header/NavbarWrapper";
+import ReduxProvider from "@/lib/Provider";
 
 const ubuntu = Ubuntu({
   variable: "--font-ubuntu",
@@ -93,6 +94,7 @@ export default function RootLayout({
       <body
         className={`${ubuntu.variable} ${suwannaphum.variable} antialiased`}
       >
+         <ReduxProvider>
         <ErrorBoundary errorComponent={Error}>
           
           <Suspense fallback={<Loading />}>
@@ -100,6 +102,7 @@ export default function RootLayout({
             {children}
           </Suspense>
         </ErrorBoundary>
+       </ReduxProvider>
       </body>
     </html>
   );
