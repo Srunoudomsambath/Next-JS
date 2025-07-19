@@ -5,9 +5,11 @@ import counterReducer from './slices/counterSlice';
 
 import storage from 'redux-persist/lib/storage';
 import { persistReducer, persistStore } from 'redux-persist';
+import { productApi } from './api/productsApi';
 
 const rootReducer = combineReducers({
   counter: counterReducer,
+  [productApi.reducerPath]: productApi.reducer,  // Add RTK Query reducer here
 });
 
 const persistConfig = {
@@ -22,7 +24,7 @@ export const store = configureStore({
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware({
       serializableCheck: false, // required by redux-persist
-    }),
+    }).concat(productApi.middleware), // Add RTK Query middleware
 });
 
 export const persistor = persistStore(store);

@@ -16,7 +16,7 @@ export default function User() {
         const search = searchParams.get('search') || '';
         setQuery(search);
 
-        fetch(`${process.env.NEXT_PUBLIC_BASE_URL_API}users`)
+        fetch(`${process.env.NEXT_PUBLIC_BASE_URL_API}/users`)
             .then(response => response.json())
             .then(data => {
                 const userList = data.users || data
