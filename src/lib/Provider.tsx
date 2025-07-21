@@ -7,9 +7,12 @@ import { store, persistor } from './store';
 export default function ReduxProvider({ children }: { children: React.ReactNode }) {
   return (
     <Provider store={store}>
-      <PersistGate loading={null} persistor={persistor}>
+      <PersistGate loading={null} persistor={persistor}> 
+        
         {children}
       </PersistGate>
     </Provider>
   );
 }
+// store reload page data save in local storage
+

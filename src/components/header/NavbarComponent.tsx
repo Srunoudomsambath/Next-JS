@@ -4,10 +4,12 @@ import Link from "next/link";
 import { navLink } from "./menu";
 import { usePathname } from "next/navigation";
 import { useEffect } from "react";
+import { useAppSelector } from "@/lib/hooks";
 
 
 export default function NavbarComponent() {
     const pathname = usePathname();
+    const itemCount = useAppSelector((state) => state.cart.itemCount);
 
     useEffect(() => {
         const toggle = document.getElementById('menu-toggle');
@@ -46,6 +48,14 @@ export default function NavbarComponent() {
                                 </Link>
                             ))
                         }
+                        <Link
+                            href="/cart" // or your cart page route
+                            className="hover:text-yellow-300 transition flex items-center space-x-1"
+                            >
+                            <span>🛒</span>
+                            <span>Cart ({itemCount})</span>
+                            </Link>
+
                     </div>
 
                     {/* <!-- Desktop Button --> */}

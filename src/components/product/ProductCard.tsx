@@ -1,8 +1,8 @@
-import { ProductType } from '@/types/productType'
+import { ProductList } from '@/types/productType'
 import Image from 'next/image'
 import React from 'react'
 
-export default function ProductCard({ id, title, description, price, thumbnail, category }: ProductType) {
+export default function ProductCard({ id, title, description, price, thumbnail, category }: ProductList) {
     return (
         <div key={id} className="bg-white rounded-lg overflow-hidden shadow-lg max-w-sm">
             <div className="relative">
