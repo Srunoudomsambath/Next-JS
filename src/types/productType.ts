@@ -1,38 +1,53 @@
-export type ProductList = {
+export type ProductType = {
     id: number;
     title: string;
-    description: string;
+    slug?: string;
     price: number;
-    thumbnail: string;
-    category: string;
+    description: string;
+    category: Category;
+    images: string[];
+    createdAt?: string;
+    updatedAt?: string;
 }
 
-export type ProductDetail = {
+export type Category = {
+    id: number;
+    name: string;
+    slug: string;
+    image: string;
+    cratedAt: string;
+    updatedAt: string;
+}
+
+export type CartItems = {
     id: number;
     title: string;
-    description: string;
+    slug?: string;
     price: number;
-    thumbnail: string;
-    discountPercentage: number;
-    reviews: Review[];
-    category: string;
+    description: string;
+    category?: Category;
+    images: string[];
+    createdAt?: string;
+    updatedAt?: string;
+    quantity: number;
 }
-export type ProductListResponse = {
-  products: ProductList[]; // Your array
-  total: number;
-  skip: number;
-  limit: number;
-};
 
-
-
-
-
-export type Review = {
-    id: number;
+export type ProductDetailType = {
+   id: number;
+    title: string;
+    slug?: string;
+    price: number;
+    description: string;
+    category: Category;
+    images: string[];
+    createdAt?: string;
+    updatedAt?: string;
+}
+    
+export type Reviews = {
     rating: number;
     comment: string;
     date: number;
-    receiverName: string;
+    recieverName: string;
     reviewerEmail: string;
 }
